@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  webdav:
+    build: .
+    container_name: webdav
+    ports:
+      - "127.0.0.1:5736:8080"
+    environment:
+      WEBDAV_HOST: 0.0.0.0
+      WEBDAV_PORT: 8080
+      SHARE_PATH: /app/data
+      WEBDAV_USERNAME: ${WEBDAV_USERNAME:-admin}
+      WEBDAV_PASSWORD: ${WEBDAV_PASSWORD:-change-me}
+    volumes:
+      - /root/mywebdav/data:/app/data
+    restart: unless-stopped
