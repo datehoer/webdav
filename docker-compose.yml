@@ -13,5 +13,5 @@ services:
       WEBDAV_USERNAME: ${WEBDAV_USERNAME:-admin}
       WEBDAV_PASSWORD: ${WEBDAV_PASSWORD:-change-me}
     volumes:
-      - /root/mywebdav/data:/app/data
+      - ./data:/app/data
     restart: unless-stopped
